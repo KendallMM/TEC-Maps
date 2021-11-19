@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Papa
+ * @author Team
  */
 public class Inicio extends javax.swing.JFrame {
 
