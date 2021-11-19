@@ -42,6 +42,7 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         MostrarCaminos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         colorOrigen = new javax.swing.JLabel();
@@ -75,6 +76,14 @@ public class Inicio extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1390, 729));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Ventana Viajero");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
 
         MostrarCaminos.setBackground(new java.awt.Color(255, 255, 204));
         MostrarCaminos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -464,6 +473,10 @@ public class Inicio extends javax.swing.JFrame {
         System.exit(0);        
     }//GEN-LAST:event_BotonSalirActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new AyudaViajero().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -512,6 +525,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel colorDestino;
     private javax.swing.JLabel colorNodoVisitado;
     private javax.swing.JLabel colorOrigen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
