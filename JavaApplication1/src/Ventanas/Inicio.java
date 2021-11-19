@@ -42,7 +42,6 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         MostrarCaminos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         colorOrigen = new javax.swing.JLabel();
@@ -55,6 +54,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         ImgMapa = new javax.swing.JLabel();
         EleccionDestino = new javax.swing.JComboBox<>();
+        AyudaViajero = new javax.swing.JButton();
         BuscarCamino = new javax.swing.JButton();
         EleccionOrigen = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -76,14 +76,6 @@ public class Inicio extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1390, 729));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("Ventana Viajero");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
 
         MostrarCaminos.setBackground(new java.awt.Color(255, 255, 204));
         MostrarCaminos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -155,6 +147,17 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(EleccionDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 460, 50));
+
+        AyudaViajero.setBackground(new java.awt.Color(0, 153, 51));
+        AyudaViajero.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        AyudaViajero.setForeground(new java.awt.Color(51, 0, 204));
+        AyudaViajero.setText("¡Ayuda al viajero!");
+        AyudaViajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AyudaViajeroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AyudaViajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 300, 60));
 
         BuscarCamino.setBackground(new java.awt.Color(0, 153, 51));
         BuscarCamino.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -473,9 +476,9 @@ public class Inicio extends javax.swing.JFrame {
         System.exit(0);        
     }//GEN-LAST:event_BotonSalirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AyudaViajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AyudaViajeroActionPerformed
         new AyudaViajero().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AyudaViajeroActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -511,6 +514,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AyudaViajero;
     private javax.swing.JButton BotonSalir;
     private javax.swing.JButton BuscarCamino;
     private javax.swing.JComboBox<String> EleccionDestino;
@@ -525,7 +529,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel colorDestino;
     private javax.swing.JLabel colorNodoVisitado;
     private javax.swing.JLabel colorOrigen;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
