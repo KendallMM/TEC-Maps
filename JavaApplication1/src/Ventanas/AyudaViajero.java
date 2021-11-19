@@ -1,11 +1,6 @@
 package Ventanas;
 
-import Clases.DatosGraficos;
-import Clases.PintanrDibujos;
-import Clases.AlgoritmoDijkstra;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JOptionPane;
+import java.util.Collections;
 
 /**
  *
@@ -15,7 +10,18 @@ public class AyudaViajero extends javax.swing.JFrame {
 
     public AyudaViajero() {
         initComponents();
-
+        String lugares[]= {"Tour Eiffel", "Parc des Princes", "Notre-Dame", "Musée d'Orsay", "Opéra Garnier", "Arc de Triomphe", "Sacré Coeur", "République", "Cementerio Père Lachaise", "Parc de la Villette", "Place de la Nation", "Bercy", "Gare d'Austerlitz", "Stade de France", "Tour Montparnasse" };
+             for(int j=0;j<14;j++) {
+                 for(int i=0;i<14-j;i++) {
+                     if (lugares[i].compareTo(lugares[i+1])>0) {
+                         String aux;
+                         aux=lugares[i];
+                         lugares[i]=lugares[i+1];
+                         lugares[i+1]=aux;
+                     }
+                 }
+             } 
+        EleccionLugar.setModel(new javax.swing.DefaultComboBoxModel<>(lugares));
     }
 
     @SuppressWarnings("unchecked")
@@ -197,6 +203,7 @@ public class AyudaViajero extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EleccionLugarActionPerformed
 
+    
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
         String nombreOrigen;
         nombreOrigen = (String) EleccionLugar.getSelectedItem();
