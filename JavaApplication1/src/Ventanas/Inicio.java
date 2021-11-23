@@ -1,8 +1,6 @@
 package Ventanas;
 
-import Clases.DatosGraficos;
-import Clases.PintanrDibujos;
-import Clases.AlgoritmoDijkstra;
+import Clases.*;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -14,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Inicio extends javax.swing.JFrame {
 
     private int Numerotope = 0;//Numero de nodos 
-    
+    public String atraso = "0";
     DatosGraficos arboles = new DatosGraficos();
 
     public static void PintarFiguras(int tope, DatosGraficos arboles) {//pinta lo q esta antes en el panel 
@@ -33,6 +31,8 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
+        TextPrompt placeholder = new TextPrompt("(min)", Retraso);
+        placeholder.changeAlpha(0.65f);
         EleccionDestino.setEnabled(false);
         EleccionOrigen.setEnabled(false);
         BuscarCamino.setEnabled(false);
@@ -53,6 +53,10 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ImgMapa = new javax.swing.JLabel();
+        SetRetraso = new javax.swing.JButton();
+        numRet = new javax.swing.JLabel();
+        txtOrigen1 = new javax.swing.JLabel();
+        Retraso = new javax.swing.JTextField();
         EleccionDestino = new javax.swing.JComboBox<>();
         AyudaViajero = new javax.swing.JButton();
         BuscarCamino = new javax.swing.JButton();
@@ -80,13 +84,13 @@ public class Inicio extends javax.swing.JFrame {
         MostrarCaminos.setBackground(new java.awt.Color(255, 255, 204));
         MostrarCaminos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         MostrarCaminos.setForeground(new java.awt.Color(0, 0, 204));
-        MostrarCaminos.setText("Mostrar Caminos");
+        MostrarCaminos.setText("Mostrar rutas");
         MostrarCaminos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MostrarCaminosActionPerformed(evt);
             }
         });
-        getContentPane().add(MostrarCaminos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 220, 50));
+        getContentPane().add(MostrarCaminos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 220, 50));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,6 +141,27 @@ public class Inicio extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 840, 720));
 
+        SetRetraso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        SetRetraso.setForeground(new java.awt.Color(0, 0, 204));
+        SetRetraso.setText("Fijar atraso");
+        SetRetraso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SetRetrasoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SetRetraso, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 100, 30));
+
+        numRet.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        numRet.setForeground(new java.awt.Color(255, 255, 255));
+        numRet.setText(".....");
+        getContentPane().add(numRet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 40));
+
+        txtOrigen1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtOrigen1.setForeground(new java.awt.Color(255, 255, 255));
+        txtOrigen1.setText("Retraso:");
+        getContentPane().add(txtOrigen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 90, 40));
+        getContentPane().add(Retraso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 80, 30));
+
         EleccionDestino.setBackground(new java.awt.Color(0, 153, 51));
         EleccionDestino.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         EleccionDestino.setForeground(new java.awt.Color(0, 0, 153));
@@ -162,7 +187,7 @@ public class Inicio extends javax.swing.JFrame {
         BuscarCamino.setBackground(new java.awt.Color(0, 153, 51));
         BuscarCamino.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         BuscarCamino.setForeground(new java.awt.Color(51, 0, 204));
-        BuscarCamino.setText("Buscar Camino mas corto");
+        BuscarCamino.setText("Buscar camino mas corto");
         BuscarCamino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarCaminoActionPerformed(evt);
@@ -196,7 +221,7 @@ public class Inicio extends javax.swing.JFrame {
         txtDestino.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtDestino.setForeground(new java.awt.Color(255, 255, 255));
         txtDestino.setText("Selecciona el destino:");
-        getContentPane().add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 260, 40));
+        getContentPane().add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 260, 40));
 
         kmRecorridos.setBackground(new java.awt.Color(255, 255, 255));
         kmRecorridos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -206,8 +231,8 @@ public class Inicio extends javax.swing.JFrame {
 
         txtOrigen.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtOrigen.setForeground(new java.awt.Color(255, 255, 255));
-        txtOrigen.setText("Selecciona el origen:");
-        getContentPane().add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 250, 40));
+        txtOrigen.setText("Selecciona el inicio:");
+        getContentPane().add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 250, 40));
 
         kmRecorridos1.setBackground(new java.awt.Color(255, 255, 255));
         kmRecorridos1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -224,14 +249,15 @@ public class Inicio extends javax.swing.JFrame {
         LateralSuperior2.setBackground(new java.awt.Color(255, 255, 255));
         LateralSuperior2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LateralSuperior2.setForeground(new java.awt.Color(0, 0, 153));
-        LateralSuperior2.setText("                            Bienvenido al sistema");
+        LateralSuperior2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LateralSuperior2.setText("۵    TEC MAPS    ۵");
         LateralSuperior2.setOpaque(true);
         getContentPane().add(LateralSuperior2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 500, 30));
 
         kmRecorridos2.setBackground(new java.awt.Color(255, 255, 255));
         kmRecorridos2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         kmRecorridos2.setForeground(new java.awt.Color(0, 0, 153));
-        kmRecorridos2.setText("          Kilometros recorridos y tiempo de llegada:");
+        kmRecorridos2.setText("          Kilómetros recorridos y tiempo de llegada:");
         kmRecorridos2.setOpaque(true);
         getContentPane().add(kmRecorridos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 520, 30));
 
@@ -250,10 +276,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MostrarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarCaminosActionPerformed
-        //jMenuItem2.setEnabled(false);
         EleccionOrigen.setEnabled(true);
-        MostrarCaminos.setEnabled(false);
-        MostrarCaminos.setVisible(false);
         txtKMAcumulados.setEnabled(false);
 
         jPanel1.paint(jPanel1.getGraphics());
@@ -457,17 +480,23 @@ public class Inicio extends javax.swing.JFrame {
 
         } else {
             AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(arboles, Numerotope, origen, destino);
+            int minRet = 0;
+            if (!"".equals(atraso)){
+                minRet = Integer.parseInt(atraso);
+            }
             Dijkstra.dijkstra();
             Font fuente = new Font("Arial", Font.BOLD, 18);
             txtKMAcumulados.setFont(fuente);
-            txtKMAcumulados.setText("No hay ningun error :)");
+            txtKMAcumulados.setText("Listo!");
             txtKMAcumulados.setForeground(Color.BLUE);
             txtKMAcumulados.setEnabled(false);
             double distance = Math.round((Dijkstra.getKM()*80/60)*100.0)/100.0;
-            double roundDbl = Math.round(Dijkstra.getKM()*100.0)/100.0;
-            kmRecorridos.setText(" "+ distance + " Km"+"         "+ roundDbl +" min");
+            double roundDbl = Math.round(Dijkstra.getKM()*100.0)/100.0 + minRet;
+            kmRecorridos.setText(" "+ distance + " Km         " + roundDbl + " min");
             
         }
+        Retraso.setEnabled(true);
+        SetRetraso.setEnabled(true);
 
 
     }//GEN-LAST:event_BuscarCaminoActionPerformed
@@ -479,6 +508,14 @@ public class Inicio extends javax.swing.JFrame {
     private void AyudaViajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AyudaViajeroActionPerformed
         new AyudaViajero().setVisible(true);
     }//GEN-LAST:event_AyudaViajeroActionPerformed
+
+    private void SetRetrasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetRetrasoActionPerformed
+        atraso = Retraso.getText();
+        numRet.setText(atraso);
+        MostrarCaminos.setEnabled(true);
+        Retraso.setEnabled(false);
+        SetRetraso.setEnabled(false);
+    }//GEN-LAST:event_SetRetrasoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -526,6 +563,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel LateralSuperior2;
     private javax.swing.JLabel LateralSuperior3;
     private javax.swing.JButton MostrarCaminos;
+    private javax.swing.JTextField Retraso;
+    private javax.swing.JButton SetRetraso;
     private javax.swing.JLabel colorDestino;
     private javax.swing.JLabel colorNodoVisitado;
     private javax.swing.JLabel colorOrigen;
@@ -538,8 +577,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel kmRecorridos;
     private javax.swing.JLabel kmRecorridos1;
     private javax.swing.JLabel kmRecorridos2;
+    private javax.swing.JLabel numRet;
     private javax.swing.JLabel txtDestino;
     private javax.swing.JTextArea txtKMAcumulados;
     private javax.swing.JLabel txtOrigen;
+    private javax.swing.JLabel txtOrigen1;
     // End of variables declaration//GEN-END:variables
 }
