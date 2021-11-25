@@ -21,9 +21,10 @@ public class AlgoritmoDijkstra {
     private final int nodoFinal;
 
     
-    
-    
-    
+       /**
+ * Con esta funcion se setean los componentes del algoritmo
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+ */ 
     
     
     public AlgoritmoDijkstra(DatosGraficos arboles, int tope, int permanente, int nodoFin) {
