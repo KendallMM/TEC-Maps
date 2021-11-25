@@ -5,8 +5,8 @@ import static Ventanas.Inicio.jPanel1;
 import java.awt.Color;
 
 /**
- *
- * @author Team
+ *Creacion de la clase principal AlgoritmoDijkstra.
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class AlgoritmoDijkstra {
 
@@ -20,6 +20,12 @@ public class AlgoritmoDijkstra {
     private int Origen;
     private final int nodoFinal;
 
+    
+    
+    
+    
+    
+    
     public AlgoritmoDijkstra(DatosGraficos arboles, int tope, int permanente, int nodoFin) {
         this.arboles = arboles;
         this.tope = tope;
@@ -29,14 +35,30 @@ public class AlgoritmoDijkstra {
 
     }
 
+    
+    /**
+ * Con esta funcion se obtienen los Kilometros
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+ */ 
+    
+    
     public double getKM() {
         return nodo[nodoFinal].getKM();
     }
-
+ 
+    /**
+ *Con esta funcion se obtiene el nodo del destino final.
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+ */
     public int getNombre() {
         return nodo[nodoFinal].getNombre();
     }
 
+    
+    /**
+ *Se implementa el algoritmo de dijkstra.
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+ */
     public void dijkstra() {
         for (int i = 0; i < tope; i++) // creacion del vector nodo del tamaño del numero de nodos pintados 
         {

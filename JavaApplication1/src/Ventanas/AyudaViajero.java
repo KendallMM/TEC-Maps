@@ -98,21 +98,18 @@ public class AyudaViajero extends javax.swing.JFrame {
 
         interes1.setBackground(new java.awt.Color(153, 255, 255));
         interes1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        interes1.setForeground(new java.awt.Color(0, 0, 0));
         interes1.setText("Lugares de interes:");
         interes1.setOpaque(true);
         getContentPane().add(interes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 480, 60));
 
         gasolinera.setBackground(new java.awt.Color(153, 255, 255));
         gasolinera.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        gasolinera.setForeground(new java.awt.Color(0, 0, 0));
         gasolinera.setText("Gasolinera cercana:");
         gasolinera.setOpaque(true);
         getContentPane().add(gasolinera, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 480, 60));
 
         restaurant.setBackground(new java.awt.Color(153, 255, 255));
         restaurant.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        restaurant.setForeground(new java.awt.Color(0, 0, 0));
         restaurant.setText("Restaurante cercano más importante:");
         restaurant.setOpaque(true);
         getContentPane().add(restaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 480, 60));
@@ -147,13 +144,11 @@ public class AyudaViajero extends javax.swing.JFrame {
 
         habitantes.setBackground(new java.awt.Color(153, 255, 255));
         habitantes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        habitantes.setForeground(new java.awt.Color(0, 0, 0));
         habitantes.setText("Habitantes:");
         habitantes.setOpaque(true);
         getContentPane().add(habitantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 110, 60));
 
         txtOrigen.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        txtOrigen.setForeground(new java.awt.Color(0, 0, 0));
         txtOrigen.setText("Selecciona el lugar:");
         getContentPane().add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 250, 40));
 

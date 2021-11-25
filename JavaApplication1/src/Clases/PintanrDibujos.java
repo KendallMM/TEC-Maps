@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Clases;
 
 import java.awt.BasicStroke;
@@ -14,16 +10,19 @@ import java.awt.RenderingHints;
 
 /**
  *
- * @author Jose H Elel
+ * @author  Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class PintanrDibujos {
 
     public PintanrDibujos() {
 
     }
-
+/**
+     *Genera los circulos de los nodos.
+     * 
+     */
     public static void pinta_Circulo(Graphics g, int x, int y, String n) {
-        //g.drawOval(x, y-10, 20, 20);
+        
         ((Graphics2D) g).setColor(Color.ORANGE);
         ((Graphics2D) g).setStroke(new BasicStroke(2));//leda el grosor al circulo        
         ((Graphics2D) g).fillOval(x, y, 15, 15);
@@ -36,7 +35,10 @@ public class PintanrDibujos {
         ((Graphics2D) g).drawString(n, x, y);
 
     }
-
+ /**
+     *Genera las lineas entre los nodos.
+     * 
+     */
     public static void pinta_Linea(Graphics g, int x1, int y1, int x2, int y2, double tam) {
         int xAux = 0;
         int yAux = 0;
@@ -62,6 +64,11 @@ public class PintanrDibujos {
         ((Graphics2D) g).drawString(String.valueOf(tam), xAux, yAux);
     }
 
+    
+     /**
+     *Se encarga de pintar el camino entre nodos.
+     * 
+     */
     public static void pinta_Camino(Graphics g, int x1, int y1, int x2, int y2, Color color) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         BasicStroke stroke = new BasicStroke(3);
@@ -70,7 +77,12 @@ public class PintanrDibujos {
         g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
         
     }
-//Pintando nodos que son recorridos
+
+    
+    /**
+     *Se encarga de seleccionar el nodo.
+     * 
+     */
     public static void seleccionNodo(Graphics g, int x, int y, String n, Color co) {
         
         ((Graphics2D) g).setColor(co);
