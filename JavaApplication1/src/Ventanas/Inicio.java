@@ -478,7 +478,10 @@ public class Inicio extends javax.swing.JFrame {
             txtKMAcumulados.setForeground(Color.BLUE);
             txtKMAcumulados.setEnabled(false);
             double distance = Math.round((Dijkstra.getKM()*80/60)*100.0)/100.0;
-            double roundDbl = Math.round(Dijkstra.getKM()*100.0)/100.0 + minRet;
+            
+            double roundDbl = Math.round((Dijkstra.getKM() + minRet)*100.0)/100.0; 
+            
+            
             kmRecorridos.setText(" "+ distance + " Km         " + roundDbl + " min");
             
         }
