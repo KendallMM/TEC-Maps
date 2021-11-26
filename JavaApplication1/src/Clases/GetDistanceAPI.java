@@ -41,7 +41,7 @@ public class GetDistanceAPI {
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0},
             {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
     };
-    private static final String API_KEY = "APIKEY";
+    private static final String API_KEY = "AIzaSyDr5F7IKRcEUmHPaQZHXlGZwIV4Ru2ElLA";
     public static float[][] distances;
     public static float[][] times;
     public static String[] cities = {"", "TourEiffel", "ParcdesPrincesParis", "NotreDameParis", "Muséed'OrsayParis", "OpéraGarnierParis", "ArcdeTriompheParis", "SacréCoeurParis", "RépubliqueParis", "SalleOlympedeGouges", "ParcdelaVillette", "PlacedelaNation", "BercyParis", "AusterlitzStation", "StadedeFrance", "TourMontparnasseParis"};
