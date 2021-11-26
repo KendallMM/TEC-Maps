@@ -3,6 +3,8 @@ package Ventanas;
 import Clases.*;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Team
  */
 public class Inicio extends javax.swing.JFrame {
-
+    double pesos[][];
     private int Numerotope = 0;//Numero de nodos 
     public String atraso = "0";
     DatosGraficos arboles = new DatosGraficos();
@@ -30,12 +32,15 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     public Inicio() {
+        
         initComponents();
         TextPrompt placeholder = new TextPrompt("(min)", Retraso);
         placeholder.changeAlpha(0.65f);
         EleccionDestino.setEnabled(false);
         EleccionOrigen.setEnabled(false);
         BuscarCamino.setEnabled(false);
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -160,6 +165,17 @@ public class Inicio extends javax.swing.JFrame {
         txtOrigen1.setForeground(new java.awt.Color(255, 255, 255));
         txtOrigen1.setText("Retraso:");
         getContentPane().add(txtOrigen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 90, 40));
+
+        Retraso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetrasoActionPerformed(evt);
+            }
+        });
+        Retraso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RetrasoKeyTyped(evt);
+            }
+        });
         getContentPane().add(Retraso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 80, 30));
 
         EleccionDestino.setBackground(new java.awt.Color(0, 153, 51));
@@ -276,70 +292,21 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MostrarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarCaminosActionPerformed
+        GetDistanceAPI distancias = new GetDistanceAPI();
+        try {
+            this.pesos = distancias.getDistance();
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         EleccionOrigen.setEnabled(true);
         txtKMAcumulados.setEnabled(false);
-
         jPanel1.paint(jPanel1.getGraphics());
-        
-        int Matriz[][] = {
-            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0},
-            {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-            {1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0},
-            {0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
-            {0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0},
-            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-            {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0},
-            {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-        };
-
-        double coe[][] = {
-            {0, 5.7, 0, 3.3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 4.2},
-            {5.7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.9},
-            {0, 0, 0, 2.2, 0, 0, 0, 2.9, 0, 0, 6.1, 4.4, 2.9, 0, 0},
-            {3.3, 0, 2.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.3},
-            {0, 0, 0, 0, 0, 3.5, 4.5, 2.8, 0, 0, 0, 0, 0, 0, 0},
-            {2, 0, 0, 0, 3.5, 0, 4.6, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 4.5, 4.6, 0, 0, 0, 6.8, 0, 0, 0, 7.3, 0},
-            {0, 0, 2.9, 0, 2.8, 0, 0, 0, 3.5, 0, 3.4, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 3.5, 0, 5.2, 3.5, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 6.8, 0, 5.2, 0, 0, 0, 0, 7.2, 0},
-            {0, 0, 6.1, 0, 0, 0, 0, 3.4, 3.5, 0, 0, 2.7, 0, 0, 0},
-            {0, 0, 4.4, 0, 0, 0, 0, 0, 0, 0, 2.7, 0, 0, 0, 0},
-            {0, 0, 2.9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.7},
-            {0, 0, 0, 0, 0, 0, 7.3, 0, 0, 7.2, 0, 0, 0, 0, 0},
-            {4.2, 3.9, 0, 3.3, 0, 0, 0, 0, 0, 0, 0, 0, 4.7, 0, 0},
-        };
-        double timeweight[][]={
-            {0, 5.7, 0, 3.3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 4.2},
-            {5.7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.9},
-            {0, 0, 0, 2.2, 0, 0, 0, 2.9, 0, 0, 6.1, 4.4, 2.9, 0, 0},
-            {3.3, 0, 2.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.3},
-            {0, 0, 0, 0, 0, 3.5, 4.5, 2.8, 0, 0, 0, 0, 0, 0, 0},
-            {2, 0, 0, 0, 3.5, 0, 4.6, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 4.5, 4.6, 0, 0, 0, 6.8, 0, 0, 0, 7.3, 0},
-            {0, 0, 2.9, 0, 2.8, 0, 0, 0, 3.5, 0, 3.4, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 3.5, 0, 5.2, 3.5, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 6.8, 0, 5.2, 0, 0, 0, 0, 7.2, 0},
-            {0, 0, 6.1, 0, 0, 0, 0, 3.4, 3.5, 0, 0, 2.7, 0, 0, 0},
-            {0, 0, 4.4, 0, 0, 0, 0, 0, 0, 0, 2.7, 0, 0, 0, 0},
-            {0, 0, 2.9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.7},
-            {0, 0, 0, 0, 0, 0, 7.3, 0, 0, 7.2, 0, 0, 0, 0, 0},
-            {4.2, 3.9, 0, 3.3, 0, 0, 0, 0, 0, 0, 0, 0, 4.7, 0, 0},
-
-        };
-
+    
         for (int j = 0; j < 15; j++) {
             for (int k = 0; k < 15; k++) {
-                double timeminutes = coe[j][k]/80 *60;
+                double timeminutes = this.pesos[j][k]/80 *60;
                 double roundDbl = Math.round(timeminutes*100.0)/100.0;
-                timeweight[j][k] = roundDbl;
+                this.pesos[j][k] = roundDbl;
         }
     }
 
@@ -355,8 +322,8 @@ public class Inicio extends javax.swing.JFrame {
         }
         for (int j = 0; j < 15; j++) {
             for (int k = 0; k < 15; k++) {
-                arboles.setmAdyacencia(j, k, Matriz[j][k]);
-                arboles.setmCoeficiente(j, k, timeweight[j][k]);
+                arboles.setmAdyacencia(j, k, distancias.Matriz[j][k]);
+                arboles.setmCoeficiente(j, k, this.pesos[j][k]);
             }
         }
         Numerotope = 15;
@@ -480,9 +447,9 @@ public class Inicio extends javax.swing.JFrame {
 
         } else {
             AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(arboles, Numerotope, origen, destino);
-            int minRet = 0;
+            double minRet = 0;
             if (!"".equals(atraso)){
-                minRet = Integer.parseInt(atraso);
+                minRet = Double.parseDouble(atraso);
             }
             Dijkstra.dijkstra();
             Font fuente = new Font("Arial", Font.BOLD, 18);
@@ -516,6 +483,19 @@ public class Inicio extends javax.swing.JFrame {
         Retraso.setEnabled(false);
         SetRetraso.setEnabled(false);
     }//GEN-LAST:event_SetRetrasoActionPerformed
+
+    private void RetrasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetrasoActionPerformed
+
+    }//GEN-LAST:event_RetrasoActionPerformed
+
+    private void RetrasoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RetrasoKeyTyped
+
+        if (evt.getKeyChar()>= 0 && evt.getKeyChar()<= 7 || evt.getKeyChar()>= 9 && evt.getKeyChar()<= 45|| evt.getKeyChar()== 47 || evt.getKeyChar()>= 58 && evt.getKeyChar()<= 127){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
+        }
+    }//GEN-LAST:event_RetrasoKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
