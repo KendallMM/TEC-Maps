@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Team
+ * @@author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class Inicio extends javax.swing.JFrame {
     double pesos[][];
@@ -17,6 +17,10 @@ public class Inicio extends javax.swing.JFrame {
     public String atraso = "0";
     DatosGraficos arboles = new DatosGraficos();
 
+    
+    
+    
+    
     public static void PintarFiguras(int tope, DatosGraficos arboles) {//pinta lo q esta antes en el panel 
         for (int j = 0; j < tope; j++) {
             for (int k = 0; k < tope; k++) {
@@ -290,7 +294,10 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     *Esta funcion permite mostrar los caminos en conjunto del boton
+     * 
+     */
     private void MostrarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarCaminosActionPerformed
         GetDistanceAPI distancias = new GetDistanceAPI();
         try {
@@ -330,14 +337,28 @@ public class Inicio extends javax.swing.JFrame {
         PintarFiguras(Numerotope, arboles);
     }//GEN-LAST:event_MostrarCaminosActionPerformed
 
+ /**
+     *Esta funcion permite la eleccion del camino final
+     * 
+     */   
+    
     private void EleccionDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EleccionDestinoActionPerformed
         BuscarCamino.setEnabled(true);
     }//GEN-LAST:event_EleccionDestinoActionPerformed
 
+   /**
+     *Esta funcion permite elecgir el origen 
+     * 
+     */ 
+    
     private void EleccionOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EleccionOrigenActionPerformed
         EleccionDestino.setEnabled(true);
     }//GEN-LAST:event_EleccionOrigenActionPerformed
 
+  /**
+     *Esta funcion permite buscar el camino a buscar.
+     * 
+     */  
     private void BuscarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCaminoActionPerformed
         int origen = 0, destino = 0;
         String nombreOrigen, nombreDestino;
@@ -468,14 +489,30 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BuscarCaminoActionPerformed
 
+ /**
+     *Esta funcion permite conectar el botonde salir 
+     * 
+     */   
+    
+    
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         System.exit(0);        
     }//GEN-LAST:event_BotonSalirActionPerformed
 
+   /**
+     *Esta funcion permite conectar el boton de ayuda al viajero
+     * 
+     */   
+      
     private void AyudaViajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AyudaViajeroActionPerformed
         new AyudaViajero().setVisible(true);
     }//GEN-LAST:event_AyudaViajeroActionPerformed
 
+    /**
+     *Esta funcion permite conectar el boton de setear el retraso
+     * 
+     */   
+    
     private void SetRetrasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetRetrasoActionPerformed
         atraso = Retraso.getText();
         numRet.setText(atraso);
@@ -484,10 +521,14 @@ public class Inicio extends javax.swing.JFrame {
         SetRetraso.setEnabled(false);
     }//GEN-LAST:event_SetRetrasoActionPerformed
 
+   
     private void RetrasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetrasoActionPerformed
 
     }//GEN-LAST:event_RetrasoActionPerformed
-
+/**
+     *Esta funcion evita ingresar caracteres diferentes a números con excepción del punto.
+     * 
+     */   
     private void RetrasoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RetrasoKeyTyped
 
         if (evt.getKeyChar()>= 0 && evt.getKeyChar()<= 7 || evt.getKeyChar()>= 9 && evt.getKeyChar()<= 45|| evt.getKeyChar()== 47 || evt.getKeyChar()>= 58 && evt.getKeyChar()<= 127){

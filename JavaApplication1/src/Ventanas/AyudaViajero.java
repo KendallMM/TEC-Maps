@@ -3,8 +3,8 @@ package Ventanas;
 import java.util.Collections;
 
 /**
- *
- * @author Team
+ *Este metodo genera una pantalla de ayuda al viajero 
+ * @author  Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class AyudaViajero extends javax.swing.JFrame {
 
@@ -193,11 +193,17 @@ public class AyudaViajero extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ *Este metodo permite activar el boton que selecciona el lugar
+ * 
+ */
     private void EleccionLugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EleccionLugarActionPerformed
 
     }//GEN-LAST:event_EleccionLugarActionPerformed
-
+/**
+ *Este metodo permite activar el boton y su funcion
+ * 
+ */
     
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
         String nombreOrigen;
@@ -325,7 +331,11 @@ public class AyudaViajero extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_showActionPerformed
-
+/**
+ *Este metodo permite activar el boton y su funcion de salida
+ * 
+ */
+    
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         this.dispose();       
     }//GEN-LAST:event_BotonSalirActionPerformed

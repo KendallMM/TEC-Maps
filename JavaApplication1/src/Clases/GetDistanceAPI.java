@@ -6,7 +6,7 @@
 package Clases;
 /**
  *
- * @author kenda
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,6 +15,12 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
+
+/**
+ *
+ * Esta clase genera las distancias entre los puntos.
+ */
 
 public class GetDistanceAPI {
     public double distance[][];
@@ -35,14 +41,17 @@ public class GetDistanceAPI {
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0},
             {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
     };
-    private static final String API_KEY = "AIzaSyDr5F7IKRcEUmHPaQZHXlGZwIV4Ru2ElLA";
+    private static final String API_KEY = "APIKEY";
     public static float[][] distances;
     public static float[][] times;
     public static String[] cities = {"", "TourEiffel", "ParcdesPrincesParis", "NotreDameParis", "Muséed'OrsayParis", "OpéraGarnierParis", "ArcdeTriompheParis", "SacréCoeurParis", "RépubliqueParis", "SalleOlympedeGouges", "ParcdelaVillette", "PlacedelaNation", "BercyParis", "AusterlitzStation", "StadedeFrance", "TourMontparnasseParis"};
     public static final int n = cities.length;
 
 
-    //downloading the data
+   /**
+ *
+ * Este metodo obtiene las distancias por medio del API de Google
+ */
     public static String getData(String source, String destination) throws Exception {
         var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + source + "&destinations=" + destination + "&key=" + API_KEY;
         var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
