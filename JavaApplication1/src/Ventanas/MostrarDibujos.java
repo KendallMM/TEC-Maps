@@ -5,7 +5,6 @@ import Clases.DatosGraficos;
 import Clases.PintanrDibujos;
 import static Ventanas.Inicio.jPanel1;
 /**
- *
  * @author  Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class MostrarDibujos {

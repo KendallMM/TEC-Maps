@@ -5,7 +5,6 @@
  */
 package Clases;
 /**
- *
  * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 import org.json.simple.JSONArray;

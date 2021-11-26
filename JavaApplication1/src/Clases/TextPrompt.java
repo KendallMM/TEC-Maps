@@ -9,9 +9,8 @@ import javax.swing.event.*;
 import javax.swing.text.*;
 
 /**
-     *
-     * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
-     */
+* @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+*/
 public class TextPrompt extends JLabel
 	implements FocusListener, DocumentListener
 {

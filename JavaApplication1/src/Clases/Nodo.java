@@ -6,7 +6,6 @@
 package Clases;
 
 /**
- *
  * @author  Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class Nodo {    

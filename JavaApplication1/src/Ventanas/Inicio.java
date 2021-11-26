@@ -8,8 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @@author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
+ * @author Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class Inicio extends javax.swing.JFrame {
     double pesos[][];

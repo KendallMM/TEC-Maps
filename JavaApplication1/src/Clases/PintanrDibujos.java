@@ -9,7 +9,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 /**
- *
  * @author  Kendall Marin, Carlos Contreras,Jose Vargas,Caroina Rodriguez
  */
 public class PintanrDibujos {
